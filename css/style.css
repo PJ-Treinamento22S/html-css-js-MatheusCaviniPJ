@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Rubik", sans-serif;
+}
+html{
+    height:100%;
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+
+#sidebar{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    height:100%;
+    width: 18%;
+    background: #ded3eb;
+    justify-content: space-around;
+}
+#menu{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    height:40%;
+    width: 100%;
+    justify-content: space-between;
+
+}
+#logo{
+    height: 109px;
+    width: 91px;
+}
+#piu{
+    background-color: #7831BE;
+    height :48px;
+    width: 200px;
+    color:white;
+    font-weight: 600;
+    border-radius: 24px;
+    border: none;
+    font-size: 40px;
+}
+.sb_item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    padding-left: 40px;
+}
+
+.sb_item h2{
+    font-size: 32px;
+    font-weight: 300;
+    color: black;
+    padding-left: 18px;
+}
+
+.sb_item img{
+    width: 48px;
+    height: 48px;
+}

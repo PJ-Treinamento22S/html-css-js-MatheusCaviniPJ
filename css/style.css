@@ -247,6 +247,17 @@ body{
     height: 24px;
 }
 
+.likes{
+    display: flex;
+    align-items: center;
+}
+
+.likes p{
+    color: #6A5085;
+    margin-left: 4px;
+    font-size: 16px;
+}
+
 
 
 /*Friends Bar*/

@@ -14,6 +14,7 @@ body{
     height: 100%;
 }
 
+/*Sidebar*/
 #sidebar{
     display: flex;
     flex-direction: column;
@@ -74,12 +75,99 @@ body{
     height: 38px;
 }
 
+
+
+/*Feed*/
 #feed{
     height:100%;
     width: 64%;
     background: white;
 }
 
+#newPiuSection{
+    width: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    border-bottom: solid #ded3eb 4px;
+}
+
+.piuBox{
+    width:85%;
+    background: #DED3EB;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 24px 0;
+}
+
+.piuBox .userCircle{
+    height: 64px;
+    width: 64px;
+    border-radius: 32px;
+    background-color: white;
+    margin: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photoAndPiu{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#newPiu{
+    border: none;
+    background: white;
+    width: 83%;
+    height: 70%;
+    border-radius: 12px;
+    margin: 12px 24px 0px 24px;
+    font-size: 24px;
+    padding-left: 16px;
+    color: #787779;
+    word-wrap: break-word;
+}
+
+
+#features{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 0 8px 64px;
+}
+
+#features img{
+    height: 28px;
+}
+
+#submitPiu{
+    background-color: #7831BE;
+    height :32px;
+    width: 120px;
+    color:white;
+    font-weight: 600;
+    border-radius: 16px;
+    border: none;
+    font-size: 24px;
+}
+#submitPiu:hover{
+    background-color: #322044;
+    height :32px;
+    width: 120px;
+    color:white;
+    font-weight: 600;
+    border-radius: 16px;
+    border: none;
+    font-size: 24px;
+}
+
+
+
+/*Friends Bar*/
 #friends{
     display: flex;
     flex-direction: column;

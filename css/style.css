@@ -82,6 +82,8 @@ body{
     height:100%;
     width: 64%;
     background: white;
+    overflow-y: scroll;
+    margin-right: 4px;
 }
 
 #newPiuSection{
@@ -163,6 +165,86 @@ body{
     border-radius: 16px;
     border: none;
     font-size: 24px;
+}
+
+
+#campoPius{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 24px;
+}
+
+.piuCard{
+    width:85%;
+    background: #DED3EB;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 4px 0;
+}
+.piuCard .userCircle{
+    height: 64px;
+    width: 64px;
+    border-radius: 32px;
+    background-color: white;
+    margin: 8px 8px 0 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.UserAndPiu{
+    display: flex;
+    flex-direction: column;
+    width: 82%;
+    margin-right: 24px;
+}
+
+.UserAndPiu h3{
+    color: #322044;
+    font-weight: 400;
+    font-size: 20px;
+    margin: 4px 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.UserAndPiu .info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.UserAndPiu div{
+    background: white;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.UserAndPiu p{
+    color: #787779;
+    padding: 8px 16px;
+    font-size: 20px;
+}
+.UserAndPiu section p{
+    color: #787779;
+    padding: 8px 16px;
+    font-size: 14px;
+}
+
+.reactions{
+    margin: 8px 0px 8px 108px;
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reaction{
+    height: 24px;
 }
 
 
@@ -273,6 +355,15 @@ body{
 }
    
 #amigos::-webkit-scrollbar-thumb {
+    background: rgb(211, 209, 209);
+    border-radius: 3px;
+  }
+
+#feed::-webkit-scrollbar {
+    width: 6px;
+}
+   
+#feed::-webkit-scrollbar-thumb {
     background: rgb(211, 209, 209);
     border-radius: 3px;
   }

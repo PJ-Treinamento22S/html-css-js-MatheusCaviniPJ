@@ -34,19 +34,19 @@ body{
 }
 
 #logo{
-    height: 109px;
-    width: 91px;
+    height: 88px;
+    width: 72px;
 }
 
 #piu{
     background-color: #7831BE;
-    height :48px;
-    width: 200px;
+    height :38px;
+    width: 160px;
     color:white;
     font-weight: 600;
-    border-radius: 24px;
+    border-radius: 19px;
     border: none;
-    font-size: 40px;
+    font-size: 32px;
 }
 
 .sb_item{
@@ -55,14 +55,14 @@ body{
     align-items: center;
     justify-content: left;
     width: 100%;
-    padding-left: 40px;
+    padding-left: 32px;
 }
 
 .sb_item h2{
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 300;
     color: black;
-    padding-left: 18px;
+    padding-left: 16px;
 }
 .active h2{
     font-weight: 500;
@@ -70,8 +70,8 @@ body{
 }
 
 .sb_item img{
-    width: 48px;
-    height: 48px;
+    width: 38px;
+    height: 38px;
 }
 
 #feed{
@@ -93,31 +93,31 @@ body{
 
 #search{
     background-color: #EEE6F5;
-    width: 264px;
-    height: 60px;
-    border-radius: 30px;
+    width: 240px;
+    height: 48px;
+    border-radius: 24px;
     border: none;
     display: flex;
     align-items: center;
     justify-content: left;
-    margin-top: 80px;
-    margin-bottom: 80px;
+    margin-top: 64px;
+    margin-bottom: 64px;
 }
 
 #search img{
-    height: 36px;
-    width: 36px;
+    height: 28px;
+    width: 28px;
     margin-right: 8px;
-    margin-left: 16px;
+    margin-left: 8px;
 
 }
 
 #searchbar{
     color: #787779;
     font-weight: 300;
-    font-size: 30px;
+    font-size: 20px;
     border: None;
-    width: 200px;
+    width: 160px;
     background-color: #EEE6F5;
 }
 
@@ -130,19 +130,19 @@ body{
 
 #friends h2{
     color: #322044;
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 8px;
     align-self: baseline;
-    margin-left: 32px;
+    margin-left: 26px;
 }
 
 .friendCard{
     background: #EEE6F5;
-    height: 72px;
-    min-height: 72px;
-    width: 264px;
-    border-radius: 36px;
+    height: 56px;
+    min-height: 56px;
+    width: 216px;
+    border-radius: 28px;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -150,45 +150,41 @@ body{
 }
 
 .friendCard .userCircle{
-    height: 60px;
-    width: 60px;
-    border-radius: 30px;
+    height: 48px;
+    width: 48px;
+    border-radius: 24px;
     background-color: white;
-    margin-left: 6px;
+    margin-left: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
  .friendCard p{
-     font-size: 26px;
+     font-size: 20px;
      font-weight: 400;
-     margin-left: 8px;
+     margin-left: 4px;
  }
 
  .friendCard img{
-     width: 48px;
-     height: 48px;
+     width: 40px;
+     height: 40px;
  }
  
 .friendCard .online{
      background: rgb(28, 223, 28);
-     height: 14px;
-     width: 14px;
-     border-radius: 7px;
+     height: 10px;
+     width: 10px;
+     border-radius: 5px;
      position: relative;
      top: -16px;
      left: -10px;   
  }
 
 #amigos::-webkit-scrollbar {
-    width: 8px;
-  }
-  
-#amigos::-webkit-scrollbar-track {
-    border-radius: 10px;
-  }
-  
+    width: 6px;
+}
+   
 #amigos::-webkit-scrollbar-thumb {
     background: rgb(211, 209, 209);
-    border-radius: 10px;
+    border-radius: 3px;
   }

@@ -1,4 +1,4 @@
-function createPiu(username, photo, text){
+function createPiu(username, photo, text, created_at){
     const card = document.createElement("div");
     const photoAndPiu = document.createElement("div");
     const userPhoto = document.createElement("img");
@@ -34,6 +34,7 @@ function createPiu(username, photo, text){
 
     userPhoto.src = photo;
     name.innerHTML = username;
+    dateTime.innerHTML = created_at.slice(8,10)+"/"+created_at.slice(5,7)+"/"+created_at.slice(0,4)+" - "+created_at.slice(11,16);
     piuText.innerHTML = text;
     likeIcon.src = "../img/Heart.svg";
     likeCount.innerHTML = Math.floor(Math.random() * 200);
@@ -48,6 +49,7 @@ function createPiu(username, photo, text){
     photoAndPiu.appendChild(userAndPiu);
     userAndPiu.appendChild(infos);
     infos.appendChild(name);
+    infos.appendChild(dateTime);
     userAndPiu.appendChild(piuField);
     piuField.appendChild(piuText);
     card.appendChild(reactions);
@@ -70,7 +72,12 @@ function onlineUser(username, photo){
     online.classList.add("online");
 
     userPhoto.src = photo;
-    name.innerHTML = username;
+    if((username.length)<=14){
+        name.innerHTML = username; 
+    }else{
+        name.innerHTML = username.slice(0,12) + "...";
+    }
+
 
     const field = document.querySelector("#amigos");
     field.appendChild(friendCard);
@@ -79,21 +86,40 @@ function onlineUser(username, photo){
     friendCard.appendChild(name);
 }
 
-let onlineUsers = [];
-
 async function getPius(){
     const response = await fetch("https://api.json-generator.com/templates/BQZ3wDrI6ts0/data?access_token=n7lhzp6uj5oi5goj0h2qify7mi2o8wrmebe3n5ad");
-    const pius = await response.json();
+    return await response.json();
+}
 
+async function displayPius(){
+    pius = await getPius();
     for(piu of pius){
-        let{username, photo} = piu.user;
-        let{text}= piu;
-        createPiu(username, photo, text);
-        onlineUsers.push(piu.user);
+         let {username, photo}= piu.user;
+         let{text, created_at} = piu;
+         createPiu(username, photo, text, created_at);
+     }
+}
+
+async function displayOnline(){
+    let Users = [];
+    pius = await getPius();
+    for(piu of pius){
+        let append = true;
+        for(user of Users){
+            if(piu.user.username == user.username){
+                append = false;
+            }
+        }
+
+        if(append){
+            Users.push(piu.user);
+        }
+    }
+    for(let i = 0; i<(Math.floor(Math.random() * 18)); i++){
+        let user = Users[i];
+        onlineUser(user.username, user.photo);
     }
 }
 
-
-
-
-getPius()
+displayPius();
+displayOnline();

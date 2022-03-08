@@ -59,6 +59,22 @@ function createPiu(username, photo, text, created_at){
     reactions.appendChild(high);
     reactions.appendChild(repost);
     reactions.appendChild(report);
+
+    var liked = false;
+
+    function like(e){
+        if(!liked){
+            liked = true;
+            likeIcon.src = "../img/heartFill.svg"
+            likeCount.innerHTML = Number(likeCount.innerHTML)+1;
+        }else{
+            liked = false;
+            likeIcon.src = "../img/Heart.svg";
+            likeCount.innerHTML = Number(likeCount.innerHTML)-1;
+        }
+    }
+
+    likeIcon.addEventListener("click", like);
 }
 
 function postPiu(username, photo, text, created_at){
@@ -122,6 +138,22 @@ function postPiu(username, photo, text, created_at){
     reactions.appendChild(high);
     reactions.appendChild(repost);
     reactions.appendChild(report);
+
+    var liked = false;
+
+    function like(e){
+        if(!liked){
+            liked = true;
+            likeIcon.src = "../img/heartFill.svg"
+            likeCount.innerHTML = Number(likeCount.innerHTML)+1;
+        }else{
+            liked = false;
+            likeIcon.src = "../img/Heart.svg";
+            likeCount.innerHTML = Number(likeCount.innerHTML)-1;
+        }
+    }
+
+    likeIcon.addEventListener("click", like);
 }
 
 function onlineUser(username, photo){

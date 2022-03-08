@@ -61,6 +61,69 @@ function createPiu(username, photo, text, created_at){
     reactions.appendChild(report);
 }
 
+function postPiu(username, photo, text, created_at){
+    const card = document.createElement("div");
+    const photoAndPiu = document.createElement("div");
+    const userPhoto = document.createElement("img");
+    const userAndPiu = document.createElement("div");
+    const infos = document.createElement("section");
+    const name = document.createElement("h3");
+    const dateTime = document.createElement("p");
+    const piuField = document.createElement("div");
+    const piuText = document.createElement("p");
+    const reactions = document.createElement("div");
+    const likes = document.createElement("div");
+    const likeIcon = document.createElement("img");
+    const likeCount = document.createElement("p");
+    const high = document.createElement("img");
+    const repost = document.createElement("img");
+    const report = document.createElement("img");
+
+    card.classList.add("piuCard");
+    photoAndPiu.classList.add("photoAndPiu");
+    userPhoto.classList.add("userCircle");
+    userAndPiu.classList.add("UserAndPiu");
+    infos.classList.add("info");
+    reactions.classList.add("reactions");
+    likes.classList.add("likes");
+    likeIcon.classList.add("reaction");
+    likeIcon.classList.add("like");
+    high.classList.add("reaction");
+    high.classList.add("high");
+    repost.classList.add("reaction");
+    repost.classList.add("repost");
+    report.classList.add("reaction");
+    report.classList.add("report");
+
+    userPhoto.src = photo;
+    name.innerHTML = username;
+    dateTime.innerHTML = created_at.slice(8,10)+"/"+created_at.slice(5,7)+"/"+created_at.slice(0,4)+" - "+created_at.slice(11,16);
+    piuText.innerHTML = text;
+    likeIcon.src = "../img/Heart.svg";
+    likeCount.innerHTML = Math.floor(Math.random() * 200);
+    high.src = "../img/highlight.svg";
+    repost.src = "../img/repeat.svg";
+    report.src = "../img/report.svg";
+
+    const field = document.querySelector("#campoPius");
+    field.prepend(card);
+    card.appendChild(photoAndPiu);
+    photoAndPiu.appendChild(userPhoto);
+    photoAndPiu.appendChild(userAndPiu);
+    userAndPiu.appendChild(infos);
+    infos.appendChild(name);
+    infos.appendChild(dateTime);
+    userAndPiu.appendChild(piuField);
+    piuField.appendChild(piuText);
+    card.appendChild(reactions);
+    reactions.appendChild(likes);
+    likes.appendChild(likeIcon);
+    likes.appendChild(likeCount);
+    reactions.appendChild(high);
+    reactions.appendChild(repost);
+    reactions.appendChild(report);
+}
+
 function onlineUser(username, photo){
     const friendCard = document.createElement("div");
     const userPhoto = document.createElement("img");
@@ -163,19 +226,18 @@ async function submitValidate(e){
     }
 
     let campo = document.getElementById("campoPius");
-    campo.innerHTML="";
     textArea.value="";
     let x = document.getElementById("charcount");
-    x.innerHTML = "0/140"
+    x.innerHTML = "0/140";
 
     pius = piuslGlobal;
     pius.unshift(newPiu);
 
-    for(piu of pius){
-         let {username, photo}= piu.user;
-         let{text, created_at} = piu;
-         createPiu(username, photo, text, created_at);
-    }
+    
+    let {username, photo}= newPiu.user;
+    let{text, created_at} = newPiu;
+    postPiu(username, photo, text, created_at);
+    
     }
 }
 

@@ -11,6 +11,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="modal_nulo">
+        <div class="modal_box">
+            <p>Ops! Parece o que seu piu ainda está vazio...</p>
+            <p>Preencha o campo de texto antes de piar.</p>
+            <button id="modalNullOk">Ok</button>
+        </div>
+    </div>
+    <div id="modal140">
+        <div class="modal_box">
+            <p>Ops! Parece o que seu piu é muito grande...</p>
+            <p>Lembre-se do limite de 140 caracteres.</p>
+            <button id="modal140Ok">Ok</button>
+        </div>
+    </div>
     <div id="sidebar">
         <img id="logo" src="../img/logo.svg" alt="">
         <div id="menu">
@@ -41,22 +55,21 @@
             <h2>Sair</h2>
         </div>
     </div>
-    
+
     <div id="feed">
         <div id="newPiuSection">
             <form class="piuBox">
                 <div class="photoAndPiu">
-                    <div class="userCircle">
-                        <img src="../img/user.svg" alt="">
-                    </div>
-                    <input type="textArea"  cols="10" wrap="hard" name="" id="newPiu" placeholder="Qual seu piu de hoje?">
+                    <img src="../img/pp.jpeg" class ="userCircle" alt="">
+                    <textarea cols="10" wrap="soft" id="newPiu" placeholder="Qual seu piu de hoje?"></textarea>
                 </div>
                 <div id="features">
                     <img src="../img/camera.svg"  class="addMedia" alt="">
                     <img src="../img/video.svg"  class="addMedia" alt="">
                     <img src="../img/smile.svg"  class="addMedia" alt="">
                     <img src="../img/at-sign.svg"  class="addMedia" alt="">
-                    <input type="submit" id="submitPiu" value="Piar">
+                    <input type="button" id="submitPiu" value="Piar">
+                    <p id="charcount">0/140</p>
                     
                 </div>
     

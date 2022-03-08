@@ -91,8 +91,11 @@ async function getPius(){
     return await response.json();
 }
 
+var piuslGlobal;
+
 async function displayPius(){
-    pius = await getPius();
+    let pius = await getPius();
+    piuslGlobal = pius;
     for(piu of pius){
          let {username, photo}= piu.user;
          let{text, created_at} = piu;
@@ -123,3 +126,66 @@ async function displayOnline(){
 
 displayPius();
 displayOnline();
+
+//validação do formulário
+function charCount(e){
+    let x = document.getElementById("charcount");
+    let text = document.getElementById("newPiu")
+    x.innerHTML = (this.value.length)+"/140"
+    if(this.value.length >140){
+        x.style.color = "#a00"
+        text.style.color = "#a00"
+    }else{
+        x.style.color = "black"
+        text.style.color = "#787779"
+    } 
+}
+
+async function submitValidate(e){
+    const textArea = document.getElementById("newPiu");
+    if(textArea.value.length >140){
+        let modal = document.getElementById("modal140");
+        modal.style.display= "flex";
+        const button = document.getElementById("modal140Ok");
+        button.addEventListener("click", function() {modal.style.display="none"});
+    }else if(textArea.value.length ==0){
+        let modal = document.getElementById("modal_nulo");
+        modal.style.display= "flex";
+        const button = document.getElementById("modalNullOk");
+        button.addEventListener("click", function() {modal.style.display="none"});
+
+    }
+    else{
+        newPiu = {user: {username: "Matheus_Cavini",
+        photo: "../img/pp.jpeg"},
+        text : textArea.value,
+        created_at: "aaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+
+    let campo = document.getElementById("campoPius");
+    campo.innerHTML="";
+    textArea.value="";
+    let x = document.getElementById("charcount");
+    x.innerHTML = "0/140"
+
+    pius = piuslGlobal;
+    pius.unshift(newPiu);
+
+    for(piu of pius){
+         let {username, photo}= piu.user;
+         let{text, created_at} = piu;
+         createPiu(username, photo, text, created_at);
+    }
+    }
+}
+
+const form = document.getElementById("submitPiu");
+form.addEventListener("click", submitValidate);
+
+const textArea = document.getElementById("newPiu");
+textArea.addEventListener("input", charCount);
+
+
+
+
+

@@ -125,14 +125,24 @@ body{
     border: none;
     background: white;
     width: 83%;
-    height: 70%;
+    min-height: 70%;
     border-radius: 12px;
-    margin: 12px 24px 0px 24px;
+    margin: 12px 24px 8px 24px;
     font-size: 24px;
     padding-left: 16px;
+    padding-top: 4px;
     color: #787779;
     word-wrap: break-word;
+    overflow: visible;
 }
+ #newPiu:focus{
+     border: none !important;
+     outline: 0;
+ }
+
+ #charcount{
+     width: 10%;
+ }
 
 
 #features{
@@ -229,6 +239,7 @@ body{
     color: #787779;
     padding: 8px 16px;
     font-size: 20px;
+    word-wrap: normal;
 }
 .UserAndPiu section p{
     color: #787779;
@@ -377,4 +388,67 @@ body{
 #feed::-webkit-scrollbar-thumb {
     background: rgb(211, 209, 209);
     border-radius: 3px;
-  }
+}
+
+
+#modal_nulo{
+display: none; /* Hidden by default */
+justify-content: center;
+align-items: center;
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgb(0,0,0); /* Fallback color */
+background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+}
+#modal140{
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+    }
+
+.modal_box{
+    width: 40%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    color: #322044;
+    border-radius: 24px;
+    font-size: 24px;
+}
+
+.modal_box button{
+    background-color: #7831BE;
+    height :32px;
+    width: 120px;
+    color:white;
+    font-weight: 600;
+    border-radius: 16px;
+    border: none;
+    font-size: 24px;
+    margin-top: 32px;
+}
+
+.modal_box button:hover{
+    background-color: #322044;
+    height :32px;
+    width: 120px;
+    color:white;
+    font-weight: 600;
+    border-radius: 16px;
+    border: none;
+    font-size: 24px;
+    margin-top: 32px;
+}

@@ -286,6 +286,17 @@ async function displayOnline(){
     }
 }
 
+function dateGenerator(){
+    let date = new Date();
+    let dia = String(date.getDate()).padStart(2, '0');
+    let mes = String(date.getMonth() + 1).padStart(2, '0');
+    let ano = date.getFullYear();
+    let hora = String(date.getHours()).padStart(2, '0');
+    let minutos = String(date.getMinutes()).padStart(2, '0');
+
+    return(ano+"-"+mes+"-"+dia+"T"+hora+":"+minutos);
+}
+
 displayPius();
 displayOnline();
 
@@ -321,7 +332,7 @@ async function submitValidate(e){
         newPiu = {user: {username: "Matheus_Cavini",
         photo: "../img/pp.jpeg"},
         text : textArea.value,
-        created_at: "aaaaaaaaaaaaaaaaaaaaaaaa"
+        created_at: dateGenerator()
     }
 
     let campo = document.getElementById("campoPius");

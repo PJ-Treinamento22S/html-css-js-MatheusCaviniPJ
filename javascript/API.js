@@ -1,4 +1,6 @@
 
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
 function createPiu(username, photo, text, created_at){
     const card = document.createElement("div");
     const photoAndPiu = document.createElement("div");
@@ -357,6 +359,71 @@ form.addEventListener("click", submitValidate);
 const textArea = document.getElementById("newPiu");
 textArea.addEventListener("input", charCount);
 
+//busca
+
+function Results(){
+
+    let results = document.getElementById("searchResults");
+    results.style.height = "600px";
+    results.style.marginBottom = "24px";
+    
+    
+    let bar = document.getElementById("searchbar");
+    bar.addEventListener("input", async function(){
+        var Users = [];
+        let pius = await getPius();
+        for(piu of pius){
+            let append = true;
+            for(user of Users){
+                if(piu.user.username == user.username){
+                    append = false;
+                }
+            }
+
+            if(append){
+                Users.push(piu.user);
+            }
+        }
+        results.innerHTML =""
+        for(i of Users){
+            if(i.username.toLowerCase().startsWith(bar.value.toLowerCase()) && bar.value != "" ){
+                const friendCard = document.createElement("div");
+                const userPhoto = document.createElement("img");
+                const online = document.createElement("div");
+                const name = document.createElement("p");
+
+                friendCard.classList.add("friendCard");
+                userPhoto.classList.add("userCircle");
+
+                userPhoto.src = i.photo;
+                if((i.username.length)<=14){
+                    name.innerHTML = i.username; 
+                }else{
+                    name.innerHTML = i.username.slice(0,12) + "...";
+                }
+
+
+        
+                results.appendChild(friendCard);
+                friendCard.appendChild(userPhoto);
+                friendCard.appendChild(online)
+                friendCard.appendChild(name);
+            }
+        }
+    });
+
+}
+
+function ResultsOff(){
+    let results = document.getElementById("searchResults");
+    results.style.height = "0";
+    results.style.marginBottom = "64px";
+    results.innerHTML=""
+}
+
+let bar = document.getElementById("searchbar");
+bar.addEventListener("focus", Results);
+bar.addEventListener("focusout", ResultsOff);
 
 
 

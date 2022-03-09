@@ -175,6 +175,7 @@ body{
     border-radius: 16px;
     border: none;
     font-size: 24px;
+    transition: all 0.2s ease-in-out;
 }
 
 
@@ -286,14 +287,19 @@ body{
 #search{
     background-color: #EEE6F5;
     width: 240px;
-    height: 48px;
+    min-height: 48px;
     border-radius: 24px;
     border: none;
     display: flex;
     align-items: center;
     justify-content: left;
     margin-top: 64px;
-    margin-bottom: 64px;
+    margin-bottom: 0px;
+}
+
+#searchbar:focus{
+    border: none !important;
+    outline: 0;
 }
 
 #search img{
@@ -312,6 +318,12 @@ body{
     width: 160px;
     background-color: #EEE6F5;
 }
+#searchResults{
+    height: 0;
+    margin-bottom: 64px;
+    transition: all 0.3s ease-in-out;
+    
+}
 
 #amigos{
     color: #322044;
@@ -326,7 +338,7 @@ body{
     font-weight: 700;
     margin-bottom: 8px;
     align-self: baseline;
-    margin-left: 26px;
+    margin-left: 16px;
 }
 
 .friendCard{
@@ -402,6 +414,7 @@ height: 100%; /* Full height */
 overflow: auto; /* Enable scroll if needed */
 background-color: rgb(0,0,0); /* Fallback color */
 background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
+
 }
 #modal140{
     display: none; /* Hidden by default */
@@ -462,4 +475,5 @@ background-color: rgba(0,0,0,0.7); /* Black w/ opacity */
 
 .modal_box button:hover{
     background-color: #322044;
+    transition: all 0.2s ease-in-out;
 }

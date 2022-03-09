@@ -1,3 +1,4 @@
+
 function createPiu(username, photo, text, created_at){
     const card = document.createElement("div");
     const photoAndPiu = document.createElement("div");
@@ -75,6 +76,29 @@ function createPiu(username, photo, text, created_at){
     }
 
     likeIcon.addEventListener("click", like);
+
+    var highlighted = false;
+    var index = Array.prototype.indexOf.call(field.children, card);
+
+    function destacar(e){
+        if(!highlighted){
+            let cards = document.getElementsByClassName("piuCard");
+            index = Array.prototype.indexOf.call(field.children, card);
+            field.insertBefore(card, cards[0]);
+            highlighted = true;
+            high.src = "../img/awardFill.svg";
+            card.style.border = "solid 3px #7831BE"
+        
+        }else{
+            let cards = document.getElementsByClassName("piuCard");
+            field.insertBefore(card, cards[index +1]);
+            highlighted = false;
+            high.src = "../img/highlight.svg"
+            card.style.border = "none"
+        }
+    }
+
+    high.addEventListener("click", destacar);
 }
 
 function postPiu(username, photo, text, created_at){
@@ -122,7 +146,15 @@ function postPiu(username, photo, text, created_at){
     report.src = "../img/report.svg";
 
     const field = document.querySelector("#campoPius");
-    field.prepend(card);
+    let cards = field.children;
+    let indexCount = 0;
+    for(i of cards){
+        if(i.style.border == "3px solid rgb(120, 49, 190)"){
+            indexCount++;
+        }
+    }
+    console.log(indexCount);
+    field.insertBefore(card, cards[indexCount]);
     card.appendChild(photoAndPiu);
     photoAndPiu.appendChild(userPhoto);
     photoAndPiu.appendChild(userAndPiu);
@@ -154,6 +186,28 @@ function postPiu(username, photo, text, created_at){
     }
 
     likeIcon.addEventListener("click", like);
+
+    var highlighted = false;
+    var index = Array.prototype.indexOf.call(field.children, card);
+    function destacar(e){
+        if(!highlighted){
+            let cards = document.getElementsByClassName("piuCard");
+            index = Array.prototype.indexOf.call(field.children, card);
+            field.insertBefore(card, cards[0]);
+            highlighted = true;
+            high.src = "../img/awardFill.svg";
+            card.style.border = "solid 3px #7831BE"
+        
+        }else{
+            let cards = document.getElementsByClassName("piuCard");
+            field.insertBefore(card, cards[index +1]);
+            highlighted = false;
+            high.src = "../img/highlight.svg"
+            card.style.border = "none"
+        }
+    }
+
+    high.addEventListener("click", destacar);
 }
 
 function onlineUser(username, photo){

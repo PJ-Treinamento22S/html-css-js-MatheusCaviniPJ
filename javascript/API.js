@@ -117,7 +117,8 @@ function postPiu(username, photo, text, created_at){
     const likeCount = document.createElement("p");
     const high = document.createElement("img");
     const repost = document.createElement("img");
-    const report = document.createElement("img");
+    const erase = document.createElement("img");
+    
 
     card.classList.add("piuCard");
     photoAndPiu.classList.add("photoAndPiu");
@@ -132,8 +133,8 @@ function postPiu(username, photo, text, created_at){
     high.classList.add("high");
     repost.classList.add("reaction");
     repost.classList.add("repost");
-    report.classList.add("reaction");
-    report.classList.add("report");
+    erase.classList.add("reaction");
+    erase.classList.add("erase");
 
     userPhoto.src = photo;
     name.innerHTML = username;
@@ -143,7 +144,7 @@ function postPiu(username, photo, text, created_at){
     likeCount.innerHTML = Math.floor(Math.random() * 200);
     high.src = "../img/highlight.svg";
     repost.src = "../img/repeat.svg";
-    report.src = "../img/report.svg";
+    erase.src = "../img/delete.svg";
 
     const field = document.querySelector("#campoPius");
     let cards = field.children;
@@ -169,7 +170,7 @@ function postPiu(username, photo, text, created_at){
     likes.appendChild(likeCount);
     reactions.appendChild(high);
     reactions.appendChild(repost);
-    reactions.appendChild(report);
+    reactions.appendChild(erase);
 
     var liked = false;
 
@@ -208,6 +209,18 @@ function postPiu(username, photo, text, created_at){
     }
 
     high.addEventListener("click", destacar);
+
+
+    function deletar(e){
+        let del = document.getElementById("modalDelete");
+        del.style.display = "flex";
+        let cancel = document.getElementById("modalDeleteC");
+        cancel.addEventListener("click", function(){del.style.display="none"});
+        let apagar = document.getElementById("modalDeleteA");
+        apagar.addEventListener("click", function(){del.style.display="none"; card.remove();})
+    }
+
+    erase.addEventListener("click", deletar);
 }
 
 function onlineUser(username, photo){
